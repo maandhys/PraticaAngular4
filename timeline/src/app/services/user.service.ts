@@ -1,9 +1,34 @@
 import { Injectable } from '@angular/core';
+import { users } from '../models/users.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+
+
+  private gitHubUrl = 'https://jsonplaceholder.typicode.com/posts/';
+
+  constructor(private http: HttpClient, 
+    private user: users) { }
+
+    async getPosts () {
+      const res = await this.http.get(this.gitHubUrl).toPromise();
+      console.log(res);
+      return res;  
+    }
+  
+    async getPotsById (id: number) {
+      const res = await this.http.get(this.gitHubUrl + id).toPromise();
+      console.log(res);
+      return res;  
+    }
+  
+    async postPots (user) {
+      const res = await this.http.post(this.gitHubUrl,user).toPromise();
+      console.log(res);
+      return res;  
+    }
 }
