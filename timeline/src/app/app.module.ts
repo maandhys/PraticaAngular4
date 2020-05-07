@@ -7,6 +7,8 @@ import { UserComponent } from './user/user.component';
 import { PostComponent } from './post/post.component';
 import { CommentComponent } from './comment/comment.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,14 @@ import { AppRoutingModule } from './/app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    HttpClientModule,
+    FormsModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
