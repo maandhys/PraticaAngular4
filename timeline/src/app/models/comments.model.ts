@@ -1,4 +1,4 @@
-export interface coments {
+export interface comments {
     postId: 1,
     id: 1,
     name: String,
