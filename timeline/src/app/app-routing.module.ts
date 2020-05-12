@@ -10,8 +10,7 @@ import { CommentComponent } from './comment/comment.component';
 const routes: Routes = [
   { path: 'post', component: PostComponent},
   { path: 'user', component: UserComponent},
-  { path: 'comments', component: CommentComponent},
-  { path: '', component: NavComponent}
+  { path: 'comments', component: CommentComponent}
  
 ];
 
