@@ -15,12 +15,18 @@ export class PostComponent implements OnInit {
 
   // prop : posts;
   // private dataPost : [posts];
-  Post = {} as posts;
-
-  ngOnInit() {
-    var result =  this.postService.getPosts();  
-    console.log('lol');
+  post = {} as posts;
+  response: any;
+  userId: [0];
+  async ngOnInit() {;
+    this.response = await this.postService.getPosts();  
+    this.getUsuarios();
   
+  }
+
+  getUsuarios() {
+    const arrayUnico = this.response.map(x => x.userId)
+    this.userId = arrayUnico.filter((el, i, arr) => arr.indexOf(el) == i);
   }
 
   onSubmit(form) {
