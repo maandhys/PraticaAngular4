@@ -1,15 +1,26 @@
-<form #posts="ngForm" (ngSubmit)="onSubmit()">
+
+<form class="m-3" #formPosts="ngForm" (ngSubmit)="onSubmit(formPosts)">
+  <h4> Inserir Novo Post</h4>
+  <div class="form-group">
+    <select class="form-control" name="id" [(ngModel)]="post.userId">
+      <option value="" selected>Selecione...</option>
+      <option *ngFor="let item of userId" [value]='time'>
+        {{item}}
+      </option>
+    </select>
+  </div>
   <div class="form-group">
     <label>Título</label>
-    <input name="title" type="text" class="form-control">
+    <input name="title" [(ngModel)]="post.title" type="text" class="form-control">
   </div>
   <div class="form-group">
     <label>Comentários</label>
-    <input name="body" type="text" class="form-control">
+    <input name="body" [(ngModel)]="post.body" type="text" class="form-control">
   </div>
   <div class="form-group">
-    <label>Título</label>
-    <input name="select" type="text" class="form-control">
+    <button class="btn btn-danger btn-block">
+      Enviar
+    </button>
   </div>
 
 </form>

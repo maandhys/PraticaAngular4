@@ -13,8 +13,8 @@ export class PostComponent implements OnInit {
 
   constructor( private postService: PostService) { }
 
-  private prop : posts;
-  private dataPost : [posts];
+  // prop : posts;
+  // private dataPost : [posts];
   Post = {} as posts;
 
   ngOnInit() {
@@ -23,8 +23,8 @@ export class PostComponent implements OnInit {
   
   }
 
-  onSubmit() {
-
+  onSubmit(form) {
+    console.log(form.value);   
   }
 
   exibicaodeComentarios(){

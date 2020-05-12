@@ -19,18 +19,15 @@ export class PostService {
       return res;  
     }
   
-    // async getPotsById (id: number) {
-    //   const res = await this.http.get(this.gitHubUrl + id).toPromise();
-    //   console.log(res);
-    //   return res;  
-    // }
+    async getPotsById (id: number) {
+      const res = await this.http.get(this.gitHubUrl + id).toPromise();
+      console.log(res);
+      return res;  
+    }
   
-    // async postPots (post) {
-    //   const res = await this.http.post(this.gitHubUrl,post).toPromise();
-    //   console.log(res);
-    //   return res;  
-    // }
+    async postPots (post) {
+      const res = await this.http.post(this.gitHubUrl,post).toPromise();
+      console.log(res);
+      return res;  
+    }
 }
-// crie os métodos Get, GetById e Post utilizando Async Await. Os métodos
-// GetById deverão receber um id como parâmetro e os métodos posts deverão
-// receber um objeto do tipo específico de cada serviço como parâmetro.
