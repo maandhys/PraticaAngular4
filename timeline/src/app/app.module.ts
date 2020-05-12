@@ -6,9 +6,12 @@ import { NavComponent } from './nav/nav.component';
 import { UserComponent } from './user/user.component';
 import { PostComponent } from './post/post.component';
 import { CommentComponent } from './comment/comment.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
+import { UserService } from './services/user.service';
+import { PostService } from './services/post.service';
+import { CommentService } from './services/comment.service';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,7 @@ import { FormsModule} from '@angular/forms';
     UserComponent,
     PostComponent,
     CommentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,7 @@ import { FormsModule} from '@angular/forms';
   providers: [
     HttpClientModule,
     FormsModule
+    
   ],
   bootstrap: [AppComponent]
 })
