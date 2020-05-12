@@ -24,3 +24,14 @@
   </div>
 
 </form>
+
+<hr>
+<div class="m-3" *ngFor="let item of response">
+ 
+ <div> User ID: {{item.userId}}  Post ID: {{item.id}}</div>
+ <h4> {{item.title}}</h4>
+ <div class="m-4">{{item.body}}</div>
+
+ <hr>
+ <!-- exibirComentario: boolean  --> -->
+</div>
