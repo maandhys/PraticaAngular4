@@ -13,21 +13,19 @@
   </thead>
   <tbody>
     <tr *ngFor="let usr of usuario">
-      <th scope="row" ></th>
       <td>{{usr.id}}</td>
       <td>{{usr.name}}</td>
       <td>{{usr.username}}</td>
-      <td class="h6">{{usr.address.city}} 
-        {{usr.address.street}} 
-        {{usr.address.suite}} 
-        {{usr.address.zipcode}}
-        {{usr.address.city}}
+      <td class="h6">{{usr.address.city}}<br />
+        {{usr.address.street}}<br />
+        {{usr.address.suite}}<br />
+        {{usr.address.zipcode}}<br />
         lat : {{usr.address.geo.lat}}
         lng: {{usr.address.geo.lng}}
       </td>
-      <td class="h6"> {{usr.company.bs}}
-        {{usr.company.catchPhrase}}
-        {{usr.company.name}}
+      <td class="h6">Nome:{{usr.company.name}}<br />
+        Bs:{{usr.company.bs}}<br />
+        Catch:{{usr.company.catchPhrase}}
       </td>
       <td>{{usr.email}}</td>
       <td>{{usr.phone}}</td>

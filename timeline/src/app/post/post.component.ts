@@ -33,8 +33,10 @@ export class PostComponent implements OnInit {
     console.log(form.value);   
   }
 
-  exibicaodeComentarios(){
-    
+  exibicaodeComentarios(id){
+//      A função exibicaodeComentarios deverá gerenciar o estado da propriedade
+// exibirComentario do respectivo post alterando para true para que os
+// comentários sejam exibidos na tela.
   }
 
 }
