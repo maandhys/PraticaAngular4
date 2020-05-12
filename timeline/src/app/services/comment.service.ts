@@ -11,8 +11,7 @@ export class CommentService {
 
   private gitHubUrl = 'https://jsonplaceholder.typicode.com/comments/';
 
-  constructor( private http: HttpClient, 
-               private comment: comments) { }
+  constructor( private http: HttpClient) { }
 
   async getComments () {
     const res = await this.http.get(this.gitHubUrl).toPromise();
@@ -26,7 +25,7 @@ export class CommentService {
     return res;  
   }
 
-  async postCommentsById (comment) {
+  async postComments (comment) {
     const res = await this.http.post(this.gitHubUrl,comment).toPromise();
     console.log(res);
     return res;  

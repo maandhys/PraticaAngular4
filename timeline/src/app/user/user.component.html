@@ -1,3 +1,37 @@
-<p>
-  user works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">name</th>
+      <th scope="col">username</th>
+      <th scope="col">Address</th>
+      <th scope="col">Company</th>
+      <th scope="col">email</th>
+      <th scope="col">phone</th>
+      <th scope="col">website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usr of usuario">
+      <th scope="row" ></th>
+      <td>{{usr.id}}</td>
+      <td>{{usr.name}}</td>
+      <td>{{usr.username}}</td>
+      <td class="h6">{{usr.address.city}} 
+        {{usr.address.street}} 
+        {{usr.address.suite}} 
+        {{usr.address.zipcode}}
+        {{usr.address.city}}
+        lat : {{usr.address.geo.lat}}
+        lng: {{usr.address.geo.lng}}
+      </td>
+      <td class="h6"> {{usr.company.bs}}
+        {{usr.company.catchPhrase}}
+        {{usr.company.name}}
+      </td>
+      <td>{{usr.email}}</td>
+      <td>{{usr.phone}}</td>
+      <td>{{usr.website}}</td>
+    </tr>
+  </tbody>
+</table>
