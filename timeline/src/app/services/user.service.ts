@@ -17,19 +17,19 @@ export class UserService {
 
   async getUsers() {
     let res = await this.http.get(this.gitHubUrl).toPromise();
-    console.log(res);
+    // console.log(res);
     return res;
   }
 
   async getUsesById(id: number) {
     let res = await this.http.get(this.gitHubUrl + id).toPromise();
-    console.log(res);
+    // console.log(res);
     return res;
   }
 
   async postUsers(user) {
     let res = await this.http.post(this.gitHubUrl, user).toPromise();
-    console.log(res);
+    // console.log(res);
     return res;
   }
 }

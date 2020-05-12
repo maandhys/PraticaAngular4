@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommentService } from '../services/comment.service';
+
 
 @Component({
   selector: 'app-comment',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private commentService: CommentService) { }
+  response;
+  async ngOnInit() {
+    this.response = await this.commentService.getComments();  
   }
 
 }
