@@ -8,9 +8,8 @@ import { from } from 'rxjs';
 })
 export class CommentService {
 
-
   private gitHubUrl = 'https://jsonplaceholder.typicode.com/comments/';
-
+  private comment: comments;
   constructor( private http: HttpClient) { }
 
   async getComments () {
@@ -25,8 +24,8 @@ export class CommentService {
     return res;  
   }
 
-  async postComments (comment) {
-    const res = await this.http.post(this.gitHubUrl,comment).toPromise();
+  async postComments (comments: comments) {
+    const res = await this.http.post(this.gitHubUrl,comments).toPromise();
     console.log(res);
     return res;  
   }

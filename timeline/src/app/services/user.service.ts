@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   private gitHubUrl = 'https://jsonplaceholder.typicode.com/users';
-
+  private user: users;
   constructor(
     private http: HttpClient,
   ) { }

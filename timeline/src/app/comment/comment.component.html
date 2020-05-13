@@ -1,14 +1,13 @@
-<div *ngFor="let item of response" class="card m-5" >
+<div *ngFor="let item of response" class="card m-5">
   <div class="card-header">
-    Comentário {{item.id}} 
+    Comentário {{item.id}}
   </div>
   <div class="card-body">
     <h6 class="card-subtitletext-muted">
-      Nome: {{item.name}}
-      Email: {{ item.email}}
+      Nome: {{item.name}} &nbsp;&nbsp; Email: {{item.email}}
     </h6>
     <p class="card-text">
-      Body: {{item.body}}
+      {{item.body}}
     </p>
   </div>
 </div>

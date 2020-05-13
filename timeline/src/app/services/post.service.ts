@@ -9,7 +9,7 @@ import { posts } from '../models/posts.model';
 export class PostService {
 
   private gitHubUrl = 'https://jsonplaceholder.typicode.com/posts/';
-
+  private post: posts;
   constructor(private http: HttpClient 
     ) { }
 
