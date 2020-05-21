@@ -10,8 +10,7 @@ export class PostService {
 
   private gitHubUrl = 'https://jsonplaceholder.typicode.com/posts/';
   private post: posts;
-  constructor(private http: HttpClient 
-    ) { }
+  constructor(private http: HttpClient ) { }
 
     async getPosts () {
       const res = await this.http.get(this.gitHubUrl).toPromise();
