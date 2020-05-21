@@ -9,13 +9,13 @@ import { HttpClient } from '@angular/common/http';
 
 export class UserService {
 
-  private gitHubUrl = 'https://jsonplaceholder.typicode.com/users';
-
+  private gitHubUrl = 'https://jsonplaceholder.typicode.com/users/';
+  private user: users;
   constructor(
     private http: HttpClient,
   ) { }
 
-  async getUsers() {
+  async getUsers(){
     let res = await this.http.get(this.gitHubUrl).toPromise();
     // console.log(res);
     return res;

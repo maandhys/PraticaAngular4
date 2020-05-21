@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {posts} from '../models/posts.model'
-import {PostService} from '../services/post.service'
-import { async } from 'rxjs/internal/scheduler/async';
-
+import { posts } from '../models/posts.model'
+import { users } from '../models/users.model'
+import { PostService } from '../services/post.service'
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-post',
@@ -11,32 +11,35 @@ import { async } from 'rxjs/internal/scheduler/async';
 })
 export class PostComponent implements OnInit {
 
-  constructor( private postService: PostService) { }
+  constructor(private postService: PostService,
+    private userService: UserService) { }
 
-  // prop : posts;
-  // private dataPost : [posts];
-  post = {} as posts;
+  post: posts = {} as posts;
+  postArray: posts[];
   response: any;
-  userId: [0];
-  async ngOnInit() {;
-    this.response = await this.postService.getPosts();  
-    this.getUsuarios();
-  
+  arrayUsers: any;
+  user: users[];
+
+  async ngOnInit() {
+    this.response = await this.postService.getPosts();
+    this.postArray = this.response;
+    this.arrayUsers = await this.userService.getUsers();
+    this.user = this.arrayUsers;
   }
 
-  getUsuarios() {
-    const arrayUnico = this.response.map(x => x.userId)
-    this.userId = arrayUnico.filter((el, i, arr) => arr.indexOf(el) == i);
+  async onSubmit(form) {
+    alert('Submit');
   }
 
-  onSubmit(form) {
-    console.log(form.value);   
+  exibicaodeComentarios(id) {
+    this.postArray.forEach(post => {
+      if (post.id == id) {
+        if (post.exibirComentario) {
+          post.exibirComentario = false
+        } else {
+          post.exibirComentario = true
+        }
+      }
+    });
   }
-
-  exibicaodeComentarios(id){
-//      A função exibicaodeComentarios deverá gerenciar o estado da propriedade
-// exibirComentario do respectivo post alterando para true para que os
-// comentários sejam exibidos na tela.
-  }
-
 }

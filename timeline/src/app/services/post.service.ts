@@ -9,9 +9,8 @@ import { posts } from '../models/posts.model';
 export class PostService {
 
   private gitHubUrl = 'https://jsonplaceholder.typicode.com/posts/';
-
-  constructor(private http: HttpClient 
-    ) { }
+  private post: posts;
+  constructor(private http: HttpClient ) { }
 
     async getPosts () {
       const res = await this.http.get(this.gitHubUrl).toPromise();

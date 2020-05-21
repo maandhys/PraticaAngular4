@@ -8,25 +8,22 @@ import { from } from 'rxjs';
 })
 export class CommentService {
 
-
-  private gitHubUrl = 'https://jsonplaceholder.typicode.com/comments/';
-
+  private gitHubUrl = 'https://jsonplaceholder.typicode.com/comments';
+  private comment: comments;
   constructor( private http: HttpClient) { }
 
   async getComments () {
     const res = await this.http.get(this.gitHubUrl).toPromise();
-    console.log(res);
     return res;  
   }
 
   async getCommentsById (id: number) {
-    const res = await this.http.get(this.gitHubUrl + id).toPromise();
-    console.log(res);
+    const res = await this.http.get(this.gitHubUrl+ '?postId='+ id).toPromise();
     return res;  
   }
 
-  async postComments (comment) {
-    const res = await this.http.post(this.gitHubUrl,comment).toPromise();
+  async postComments (comments: comments) {
+    const res = await this.http.post(this.gitHubUrl,comments).toPromise();
     console.log(res);
     return res;  
   }

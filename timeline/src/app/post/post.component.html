@@ -1,41 +1,47 @@
 <form class="m-3" #formPosts="ngForm" (ngSubmit)="onSubmit(formPosts)">
-  <h4> Inserir Novo Post</h4>
-  <div class="form-group">
-    <select class="form-control" name="id" [(ngModel)]="post.userId">
-      <option value="" selected>Selecione...</option>
-      <option *ngFor="let item of userId">
-        {{item}}
-      </option>
-    </select>
-  </div>
+  <h4>Inserir Novo Post</h4>
+  <select class="form-control" name="userId" [(ngModel)]="post.userId">
+    <option value="" selected>Selecione...</option>
+    <option *ngFor="let item of user" [value]="item.id">
+      {{ item.id }} - {{ item.name }}
+    </option>
+  </select>
+
   <div class="form-group">
     <label>Título</label>
-    <input name="title" [(ngModel)]="post.title" type="text" class="form-control">
+    <input
+      name="title"
+      [(ngModel)]="post.title"
+      type="text"
+      class="form-control"
+    />
   </div>
   <div class="form-group">
     <label>Comentários</label>
-    <input name="body" [(ngModel)]="post.body" type="text" class="form-control">
+    <input
+      name="body"
+      [(ngModel)]="post.body"
+      type="text"
+      class="form-control"
+    />
   </div>
   <div class="form-group">
     <button class="btn btn-danger btn-block">
       Enviar
     </button>
   </div>
-
 </form>
 
-<hr>
-<div class="m-3" *ngFor="let item of response">
-
-  <div> User ID: {{item.userId}} Post ID: {{item.id}}</div>
-  <h4> {{item.title}}</h4>
-  <div class="m-4">{{item.body}}</div>
+<hr />
+<div class="m-3" *ngFor="let item of postArray">
+  <div>User ID: {{ item.userId }} Post ID: {{ item.id }}</div>
+  <h4>{{ item.title }}</h4>
+  <div class="m-4">{{ item.body }}</div>
   <button (click)="exibicaodeComentarios(item.id)">
     Exibir Comentários
   </button>
-  <!-- <app-comment *ngIf="item.exibirComentario">
-    </app-comments> -->
-
-  <hr>
-
+  <div *ngIf="item.exibirComentario">
+    <app-comment [idPost]="item.id"> </app-comment>
+  </div>
+  <hr />
 </div>
